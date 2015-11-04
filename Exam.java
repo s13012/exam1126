@@ -1,5 +1,3 @@
-import java.util.Scanner;
-import java.util.Random;
 import java.util.stream.IntStream;
 
 public class Exam {
@@ -124,7 +122,7 @@ public class Exam {
 	*/
 
 	int getRandom (int min,int max) {
-		return iDummy;
+		return (int) ((Math.random() * (max - min + 1)) + min);
 	}
 
 	/*
