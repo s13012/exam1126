@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class Exam {
 
@@ -65,7 +66,9 @@ public class Exam {
 	*/
 
 	double average (int x,int y,int z) {
-		return dDummy;
+		return IntStream.of(x, y, z)
+				.average()
+				.getAsDouble();
 	}
 
 	/*
