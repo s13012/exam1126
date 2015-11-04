@@ -113,8 +113,9 @@ public class Exam {
 	BMI＝体重（kg）÷（身長（m）×身長（m））
 	*/
 
-	double calcBMI (int x,int y,int z) {
-		return dDummy;
+	double calcBMI (int x,int y) {
+		double height = y / 100.0;
+		return x / (height * height);
 	}
 
 	/*
