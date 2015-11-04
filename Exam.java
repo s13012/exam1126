@@ -48,7 +48,7 @@ public class Exam {
 	*/
 
 	int max(int x,int y) {
-		return iDummy;
+		return x > y ? x : y;
 	}
 	/*
 	問5 intの引数 x,y を 受け取り合計を返す
@@ -153,6 +153,4 @@ public class Exam {
 	void execute() {
 
 	}
-
-
 }
