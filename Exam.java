@@ -28,7 +28,9 @@ public class Exam {
 	*/
 
 	void countDown(int count) {
-
+		for (int i = count; i >= 0; i--) {
+			System.out.println(i);
+		}
 	}
 
 	/*
