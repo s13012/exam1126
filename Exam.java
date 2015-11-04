@@ -168,6 +168,13 @@ public class Exam {
 
 	void TimesTable(){
 		int[][] timestable = new int[9][9];
+		for (int i = 0; i < timestable.length; i++) {
+			for (int j = 0; j < timestable[i].length; j++) {
+				timestable[i][j] = (i + 1) * (j + 1);
+				System.out.printf("%3d", timestable[i][j]);
+			}
+			System.out.println();
+		}
 	}
 
 	/*
