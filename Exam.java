@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.stream.IntStream;
 
 public class Exam {
@@ -131,7 +133,11 @@ public class Exam {
 	*/
 
 	int[] descSort(int[] array) {
-		return iaDummy;
+		return Arrays.stream(array)
+				.boxed()
+				.sorted(Comparator.reverseOrder())
+				.mapToInt(Integer::intValue)
+				.toArray();
 	}
 
 	/*
