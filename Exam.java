@@ -1,5 +1,6 @@
-import java.util.Scanner;
-import java.util.Random;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.stream.IntStream;
 
 public class Exam {
 
@@ -16,7 +17,10 @@ public class Exam {
 	*/
 	
 	void countUp(int count) {
- 
+		int i = 0;
+		while (i < count + 1) {
+			System.out.println(i++);
+		}
 	}
 
 	/*
@@ -25,7 +29,9 @@ public class Exam {
 	*/
 
 	void countDown(int count) {
-
+		for (int i = count; i >= 0; i--) {
+			System.out.println(i);
+		}
 	}
 
 	/*
@@ -34,7 +40,7 @@ public class Exam {
 	*/
 
 	boolean positive(int x) {
-		return bDummy;
+		return x < 0;
 	}
 
 	/*
@@ -43,16 +49,15 @@ public class Exam {
 	*/
 
 	int max(int x,int y) {
-		return iDummy;
+		return x > y ? x : y;
 	}
-
 	/*
 	問5 intの引数 x,y を 受け取り合計を返す
 	メソッド sum を定義せよ。
 	*/
 
 	int sum(int x,int y) {
-		return iDummy;
+		return x + y;
 	}
 
 	/*
@@ -61,7 +66,9 @@ public class Exam {
 	*/
 
 	double average (int x,int y,int z) {
-		return dDummy;
+		return IntStream.of(x, y, z)
+				.average()
+				.getAsDouble();
 	}
 
 	/*
@@ -70,7 +77,15 @@ public class Exam {
 	*/
 
 	char rank (int score) {
-		return cDummy;
+		if (score >= 45 && score < 70) {
+			return 'C';
+		} else if (score >= 70 && score < 90) {
+			return 'B';
+		} else if (score >= 90) {
+			return 'A';
+		} else {
+			return 'D';
+		}
 	}
 
 	/*
@@ -79,7 +94,7 @@ public class Exam {
 	*/
 
 	int getRectArea (int width, int height) {
-		return iDummy;
+		return width * height;
 	}
 
 	/*
@@ -88,7 +103,8 @@ public class Exam {
 	*/
 
 	double getTriangleArea (int x,int y,int z) {
-		return dDummy;
+		double s = (x + y + z) / 2;
+		return Math.sqrt(s * (s - x) * (s - y) * (s - z));
 	}
 
 	/*
@@ -97,8 +113,9 @@ public class Exam {
 	BMI＝体重（kg）÷（身長（m）×身長（m））
 	*/
 
-	double calcBMI (int x,int y,int z) {
-		return dDummy;
+	double calcBMI (int x,int y) {
+		double height = y / 100.0;
+		return x / (height * height);
 	}
 
 	/*
@@ -107,7 +124,7 @@ public class Exam {
 	*/
 
 	int getRandom (int min,int max) {
-		return iDummy;
+		return (int) ((Math.random() * (max - min + 1)) + min);
 	}
 
 	/*
@@ -116,7 +133,11 @@ public class Exam {
 	*/
 
 	int[] descSort(int[] array) {
-		return iaDummy;
+		return Arrays.stream(array)
+				.boxed()
+				.sorted(Comparator.reverseOrder())
+				.mapToInt(Integer::intValue)
+				.toArray();
 	}
 
 	/*
@@ -129,7 +150,15 @@ public class Exam {
 	*/
 
 	String FizzBuzz(int x) {
-		return sDummy;
+		if (x % 15 == 0) {
+			return "FizzBuzz";
+		} else if (x % 3 == 0) {
+			return "Fizz";
+		} else if (x % 5 == 0) {
+			return "Buzz";
+		} else {
+			return String.valueOf(x);
+		}
 	}
 
 	/*
@@ -139,15 +168,27 @@ public class Exam {
 
 	void TimesTable(){
 		int[][] timestable = new int[9][9];
+		for (int i = 0; i < timestable.length; i++) {
+			for (int j = 0; j < timestable[i].length; j++) {
+				timestable[i][j] = (i + 1) * (j + 1);
+				System.out.printf("%3d", timestable[i][j]);
+			}
+			System.out.println();
+		}
 	}
 
 	/*
 	問15 自由課題
 	自由に Java のプログラミングをせよ，但し説明をつけよ
 	*/
-
+	/**
+	 * StreamAPIを使用して100万回HelloWorldを出力する
+	 */
 	void execute() {
-
+		final int MAX = 1000000;
+		IntStream.rangeClosed(0, MAX)
+				.mapToObj(i -> "HelloWorld")
+				.parallel()
+				.forEach(System.out::println);
 	}
-
 }
