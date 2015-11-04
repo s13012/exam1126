@@ -39,7 +39,7 @@ public class Exam {
 	*/
 
 	boolean positive(int x) {
-		return bDummy;
+		return x < 0;
 	}
 
 	/*
@@ -50,7 +50,6 @@ public class Exam {
 	int max(int x,int y) {
 		return iDummy;
 	}
-
 	/*
 	問5 intの引数 x,y を 受け取り合計を返す
 	メソッド sum を定義せよ。
@@ -154,5 +153,6 @@ public class Exam {
 	void execute() {
 
 	}
+
 
 }
