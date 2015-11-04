@@ -181,8 +181,14 @@ public class Exam {
 	問15 自由課題
 	自由に Java のプログラミングをせよ，但し説明をつけよ
 	*/
-
+	/**
+	 * StreamAPIを使用して100万回HelloWorldを出力する
+	 */
 	void execute() {
-
+		final int MAX = 1000000;
+		IntStream.rangeClosed(0, MAX)
+				.mapToObj(i -> "HelloWorld")
+				.parallel()
+				.forEach(System.out::println);
 	}
 }
